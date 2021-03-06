@@ -1,0 +1,30 @@
+<div class="to-do-list">
+  <div class="tab">
+    To Do List
+  </div>
+  <div class="tool-bar">
+    <div class="toolbar-group-right">
+      <p-button label="New" icon="pi pi-plus" (click)="addNewListItem()"></p-button>
+      <p-button icon="pi pi-trash" (click)="deleteSelected()" styleClass="p-button-danger"></p-button>
+    </div>
+  </div>
+  <p-carousel [value]="toDoList" [circular]="true" #toDoListView>
+    <ng-template let-toDoItem pTemplate="item">
+      <div class="carousel-item">
+        <p-checkbox [value]="toDoItem.id" [(ngModel)]="selectedToDos"></p-checkbox>
+        <div class="ui-control" (dblclick)="toDoItem.editable = true" *ngIf="!toDoItem.editable; else editableTemplate">
+          Priority: {{toDoItem.priority}}
+          <p>{{toDoItem.label}}</p>
+        </div>
+      </div>
+      <ng-template #editableTemplate>
+        <div class="carousel-item--editable">
+          <p-dropdown class="ui-control" [options]="priorities" [(ngModel)]="toDoItem.priority" placeholder="Select" optionLabel="name"
+            optionValue="value"></p-dropdown>
+          <textarea class="ui-control" [rows]="7" [(ngModel)]="toDoItem.label" pInputTextarea></textarea>
+          <p-button class="ui-control" icon="pi pi-check" (click)="toDoItem.editable=false"></p-button>
+        </div>
+      </ng-template>
+    </ng-template>
+  </p-carousel>
+</div>

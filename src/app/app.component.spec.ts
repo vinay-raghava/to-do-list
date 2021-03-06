@@ -1,11 +1,19 @@
-import { TestBed } from '@angular/core/testing';
+// Angular imports
 import { AppComponent } from './app.component';
+import { Component } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+@Component({
+  selector: 'to-do-list',
+  template: '<div></div>'
+})
+export class FakeComponent{}
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        FakeComponent
       ],
     }).compileComponents();
   });
@@ -20,12 +28,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('to-do-list');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('to-do-list app is running!');
   });
 });
