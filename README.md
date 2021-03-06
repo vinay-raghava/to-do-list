@@ -22,6 +22,16 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Features that can be implemented in future
+
+- Authorization can be done by which we can store user specific to do list in backend.
+- Connect to a backend database and store and retrieve the to do list for persistence of data
+- Localization
+
+## Fixes to be done in future
+
+- Font issues can be fixed.
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
